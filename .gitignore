@@ -1,5 +1,6 @@
 db/
 data/
+!docs/data/
 __pycache__/
 *.pyc
 .DS_Store
