@@ -167,7 +167,8 @@ def build_index_html(conn) -> int:
                 (work_id,),
             ):
                 href = f"{slug}/{code}.xhtml"
-                parts.append(f"<li><a href='{href}'>{html.escape(code)}</a></li>")
+                label = f"{code}. {title_orig}" if title_orig and title_orig != code else code
+                parts.append(f"<li><a href='{href}'>{html.escape(label)}</a></li>")
                 total_books += 1
             parts.append("</ul>")
 
@@ -184,7 +185,8 @@ def build_index_html(conn) -> int:
                 (work_id,),
             ):
                 href = f"{slug}/{code}.xhtml"
-                parts.append(f"<li><a href='{href}'>{html.escape(code)}</a></li>")
+                label2 = f"{code}. {title_orig}" if title_orig and title_orig != code else code
+                parts.append(f"<li><a href='{href}'>{html.escape(label2)}</a></li>")
                 total_books += 1
             parts.append("</ul>")
 
