@@ -1,0 +1,9 @@
+{
+  "name": "Biblioteca dei Testi Sacri — Corano",
+  "short_name": "Biblioteca Corano",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#15110d",
+  "theme_color": "#15110d",
+  "lang": "it"
+}

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="it" dir="ltr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#15110d"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="assets/app.css"><title>Corano — Lettura</title></head>
+<body>
+<header class="topbar"><a class="brand" href="./">Biblioteca <span>· Corano</span></a><nav><a href="./#search">Ricerca</a><a href="./#tools">Strumenti</a></nav></header>
+<main class="reader-shell">
+<section class="reader-head"><a href="./">← Biblioteca</a><div class="reader-actions"><button id="fontDown" class="ghost">A−</button><button id="fontUp" class="ghost">A+</button><button id="theme" class="ghost">Tema</button></div><div><span id="suraNumber" class="eyebrow"></span><h1 id="suraTitle">Caricamento…</h1><p id="suraMeta"></p></div></section>
+<div class="reader-layout">
+<aside class="side-nav"><label for="suraSelect">Sura</label><select id="suraSelect"></select><label for="verseJump">Versetto</label><input id="verseJump" type="number" min="1"><button id="jumpBtn" class="primary">Vai</button><hr><button id="bookmarkCurrent" class="ghost">Segnalibro</button><button id="showNotes" class="ghost">Note locali</button></aside>
+<section><div id="verses" class="verses" aria-live="polite"></div></section>
+</div></main>
+<dialog id="morphDialog"><form method="dialog"><button class="close">×</button><h2 id="morphTitle">Morfologia</h2><div id="morphBody"></div><button class="primary">Chiudi</button></form></dialog>
+<dialog id="noteDialog"><form id="noteForm"><button type="button" class="close" id="noteClose">×</button><h2>Nota locale</h2><p id="noteRef"></p><textarea id="noteText" rows="8" placeholder="La nota resta sul tuo dispositivo."></textarea><div class="dialog-actions"><button type="button" id="deleteNote" class="ghost">Elimina</button><button class="primary">Salva</button></div></form></dialog>
+<dialog id="localDialog"><form method="dialog"><button class="close">×</button><h2>Segnalibri e note</h2><div id="localList"></div><button class="primary">Chiudi</button></form></dialog>
+<script src="assets/reader.js" defer></script>
+</body></html>
