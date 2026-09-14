@@ -7,7 +7,7 @@ ROOT = Path(__file__).parent
 DOCS = ROOT / 'docs'
 DATA = DOCS / 'data'
 SOURCE_MORPH = ROOT / 'data' / 'quranic-corpus-morphology-0.4.txt'
-VERSION = '4'
+VERSION = '5'
 
 DIACRITICS = re.compile(r'[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]')
 
