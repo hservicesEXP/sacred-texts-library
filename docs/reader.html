@@ -1,16 +1,29 @@
 <!doctype html>
 <html lang="it" dir="ltr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#15110d"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="assets/app.css"><title>Corano — Lettura</title></head>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17130f"><meta name="description" content="Lettura del Corano in arabo, con morfologia e note locali.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="assets/app.css">
+<title>Corano — Lettura</title>
+</head>
 <body>
-<header class="topbar"><a class="brand" href="./">Biblioteca <span>· Corano</span></a><nav><a href="./#search">Ricerca</a><a href="./#tools">Strumenti</a></nav></header>
+<header class="topbar"><a class="brand" href="./">Biblioteca <span>· Corano</span></a><nav aria-label="Navigazione"><a href="./#search">Ricerca</a><a href="./#tools">Strumenti</a></nav></header>
 <main class="reader-shell">
-<section class="reader-head"><a href="./">← Biblioteca</a><div class="reader-actions"><button id="fontDown" class="ghost">A−</button><button id="fontUp" class="ghost">A+</button><button id="theme" class="ghost">Tema</button></div><div><span id="suraNumber" class="eyebrow"></span><h1 id="suraTitle">Caricamento…</h1><p id="suraMeta"></p></div></section>
+<section class="reader-head">
+  <div><a href="./">← Biblioteca</a><span id="suraNumber" class="eyebrow" style="display:block;margin-top:24px"></span><h1 id="suraTitle">Caricamento…</h1><p id="suraMeta"></p></div>
+  <div class="reader-actions"><button id="fontDown" class="ghost" type="button" aria-label="Riduci testo">A−</button><button id="fontUp" class="ghost" type="button" aria-label="Aumenta testo">A+</button><button id="theme" class="ghost dark-toggle" type="button">Tema</button></div>
+</section>
 <div class="reader-layout">
-<aside class="side-nav"><label for="suraSelect">Sura</label><select id="suraSelect"></select><label for="verseJump">Versetto</label><input id="verseJump" type="number" min="1"><button id="jumpBtn" class="primary">Vai</button><hr><button id="bookmarkCurrent" class="ghost">Segnalibro</button><button id="showNotes" class="ghost">Note locali</button></aside>
+<aside class="side-nav" aria-label="Controlli di lettura">
+  <label for="suraSelect">Sura</label><select id="suraSelect"></select>
+  <label for="verseJump">Vai al versetto</label><input id="verseJump" type="number" min="1" inputmode="numeric" placeholder="es. 255"><button id="jumpBtn" class="primary" type="button">Vai</button>
+  <hr><button id="prevSura" class="ghost" type="button">← Sura precedente</button><button id="nextSura" class="ghost" type="button">Sura successiva →</button>
+  <hr><button id="bookmarkCurrent" class="ghost" type="button">Segnalibro</button><button id="showNotes" class="ghost" type="button">Note e segnalibri</button>
+</aside>
 <section><div id="verses" class="verses" aria-live="polite"></div></section>
 </div></main>
-<dialog id="morphDialog"><form method="dialog"><button class="close">×</button><h2 id="morphTitle">Morfologia</h2><div id="morphBody"></div><button class="primary">Chiudi</button></form></dialog>
-<dialog id="noteDialog"><form id="noteForm"><button type="button" class="close" id="noteClose">×</button><h2>Nota locale</h2><p id="noteRef"></p><textarea id="noteText" rows="8" placeholder="La nota resta sul tuo dispositivo."></textarea><div class="dialog-actions"><button type="button" id="deleteNote" class="ghost">Elimina</button><button class="primary">Salva</button></div></form></dialog>
-<dialog id="localDialog"><form method="dialog"><button class="close">×</button><h2>Segnalibri e note</h2><div id="localList"></div><button class="primary">Chiudi</button></form></dialog>
+<dialog id="morphDialog"><form method="dialog"><button class="close" aria-label="Chiudi">×</button><h2 id="morphTitle">Morfologia</h2><div id="morphBody"></div><button class="primary">Chiudi</button></form></dialog>
+<dialog id="noteDialog"><form id="noteForm"><button type="button" class="close" id="noteClose" aria-label="Chiudi">×</button><h2>Nota locale</h2><p id="noteRef"></p><textarea id="noteText" rows="8" placeholder="La nota resta sul tuo dispositivo."></textarea><div class="dialog-actions"><button type="button" id="deleteNote" class="ghost">Elimina</button><button class="primary">Salva</button></div></form></dialog>
+<dialog id="localDialog"><form method="dialog"><button class="close" aria-label="Chiudi">×</button><h2>Biblioteca personale</h2><div id="localList"></div><button class="primary">Chiudi</button></form></dialog>
 <script src="assets/reader.js" defer></script>
 </body></html>

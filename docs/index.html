@@ -2,60 +2,37 @@
 <html lang="it" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#15110d"><link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="assets/app.css">
+<meta name="theme-color" content="#17130f"><meta name="description" content="Sacred Texts Library — biblioteca digitale del Corano, con ricerca deterministica, morfologia e lettura locale.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="assets/app.css">
 <title>Biblioteca dei Testi Sacri — Corano</title>
 </head>
 <body>
-<div id="intro" class="intro" aria-hidden="false">
-  <div class="stars"></div>
-  <div class="gate-scene" aria-label="Ingresso della biblioteca">
-    <div class="gate left"></div><div class="gate right"></div>
-    <div class="arch">بِسْمِ ٱللَّهِ</div>
-  </div>
-  <div class="intro-copy"><span class="eyebrow">BIBLIOTECA DEI TESTI SACRI</span><h1>Il Corano</h1><p>Una biblioteca digitale silenziosa per la consultazione della fonte araba.</p>
-  <button id="enter" class="primary">Entra in biblioteca</button><button id="skipIntro" class="ghost">Salta introduzione</button></div>
+<div id="intro" class="intro" aria-label="Ingresso della biblioteca">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="gate-scene" aria-hidden="true"><div class="gate left"></div><div class="gate right"></div><div class="arch">بِسْمِ ٱللَّهِ</div></div>
+  <div class="intro-copy"><span class="eyebrow">SACRED TEXTS LIBRARY · V1</span><h1>Il Corano</h1><p>Una biblioteca digitale dedicata alla consultazione, al confronto linguistico e allo studio del testo arabo.</p><button id="enter" class="primary">Entra nella biblioteca</button> <button id="skipIntro" class="ghost" style="color:#f7eddd;border-color:#a67a42">Vai direttamente ai testi</button></div>
 </div>
-
-<header class="topbar">
-  <a class="brand" href="./">Biblioteca <span>· Corano</span></a>
-  <nav aria-label="Navigazione principale">
-    <a href="#library">Biblioteca</a><a href="#search">Ricerca</a><a href="#tools">Strumenti</a>
-  </nav>
-</header>
+<header class="topbar"><a class="brand" href="./">Biblioteca <span>· Corano</span></a><nav aria-label="Navigazione principale"><a href="#library">Biblioteca</a><a href="#search">Ricerca</a><a href="#tools">Custodi</a></nav></header>
 <main id="library" class="shell">
 <section class="hero">
-  <div><span class="eyebrow">CORPUS V1</span><h1>Il Corano, 114 sure</h1>
-  <p>Testo arabo Uthmani, navigazione per sura e versetto, ricerca deterministica, morfologia e note locali.</p></div>
-  <aside class="keeper-card"><div class="keeper-avatar" aria-hidden="true"><i></i></div><div><strong>Il Custode</strong><p>Ti guida nella biblioteca. Nessun account richiesto.</p></div></aside>
+ <div><span class="eyebrow">CORPUS V1 · 114 SURE</span><h1>Il Corano,<br>una biblioteca.</h1><p>Testo arabo Uthmani, 114 sure e 6.236 versetti, ricerca deterministica, morfologia parola-per-parola e strumenti personali che restano sul tuo dispositivo.</p><div class="hero-rule"><span>ACCESSO DIRETTO ALLA FONTE</span></div></div>
+ <aside class="keeper-card"><div class="keeper-avatar" aria-hidden="true"></div><strong>Il Custode</strong><p>Ti accompagna tra le sale della biblioteca. La navigazione è deterministica: nessun account e nessuna AI necessaria.</p><a class="keeper-link" href="#tools">Apri gli strumenti →</a></aside>
 </section>
-
-<section id="search" class="panel search-panel">
-  <div class="panel-title"><div><span class="eyebrow">RICERCA DETERMINISTICA</span><h2>Cerca nel Corano</h2></div><span id="searchStatus" class="muted">Caricamento indice…</span></div>
-  <form id="searchForm" class="search-form">
-    <input id="query" autocomplete="off" placeholder="Parola araba, riferimento (2:255), radice o lemma…" aria-label="Cerca nel Corano">
-    <select id="searchMode" aria-label="Modalità di ricerca"><option value="text">Testo</option><option value="root">Radice (Buckwalter)</option><option value="lemma">Lemma (Buckwalter)</option><option value="ref">Riferimento</option></select>
-    <button class="primary" type="submit">Cerca</button>
-  </form>
-  <div id="results" class="results" aria-live="polite"></div>
+<section id="search" class="panel search-panel"><div class="panel-title"><div><span class="eyebrow">SALA DELLA RICERCA</span><h2>Cerca nel Corano</h2></div><span id="searchStatus" class="status">Preparazione indice…</span></div>
+ <form id="searchForm" class="search-form"><input id="query" autocomplete="off" spellcheck="false" placeholder="Parola araba, 2:255, radice o lemma…" aria-label="Cerca nel Corano"><select id="searchMode" aria-label="Modalità di ricerca"><option value="text">Testo arabo · concetti</option><option value="root">Radice · Buckwalter</option><option value="lemma">Lemma · Buckwalter</option><option value="ref">Riferimento</option></select><button class="primary" type="submit">Cerca</button></form>
+ <button id="retrySearch" class="ghost" type="button" hidden>Ricarica indice</button><div id="results" class="results" aria-live="polite"><div class="empty"><strong>Ricerca locale</strong><span>L'indice viene caricato dal sito e interrogato nel browser. Nessun testo viene inviato a un server di ricerca.</span></div></div>
 </section>
-
-<section class="panel">
- <div class="panel-title"><div><span class="eyebrow">CONSULTAZIONE</span><h2>Le 114 sure</h2></div><div class="controls"><button id="randomBtn" class="ghost">Versetto casuale</button></div></div>
- <div id="suraGrid" class="sura-grid"></div>
-</section>
-
-<section id="tools" class="panel tools">
- <div class="panel-title"><div><span class="eyebrow">GLI STRUMENTI</span><h2>Biblioteca personale</h2></div></div>
+<section class="panel"><div class="panel-title"><div><span class="eyebrow">SALA DEI TESTI</span><h2>Le 114 sure</h2></div><button id="randomBtn" class="ghost" type="button">Apri un versetto casuale</button></div><div id="suraGrid" class="sura-grid"></div></section>
+<section id="tools" class="panel tools"><div class="panel-title"><div><span class="eyebrow">LE FIGURE DELLA BIBLIOTECA</span><h2>Quattro ruoli, quattro funzioni</h2></div></div>
  <div class="character-grid">
-  <article><div class="char-icon custode">C</div><h3>Custode</h3><p>Navigazione e orientamento della biblioteca. Funziona senza AI.</p></article>
-  <article><div class="char-icon studioso">S</div><h3>Studioso</h3><p>Area predisposta per analisi contestuale AI opzionale, con perimetro chiuso sul testo selezionato.</p><button class="ghost" id="scholarBtn">Apri Studio</button></article>
-  <article><div class="char-icon cartografo">K</div><h3>Cartografo</h3><p>Visualizza collegamenti e temi del corpus quando saranno definiti metadati verificati.</p></article>
-  <article><div class="char-icon codicologo">C</div><h3>Codicologo</h3><p>Schede di fonte, provenienza, licenza e metadati del testo visualizzato.</p></article>
+  <article><div class="char-icon custode">C</div><h3>Custode</h3><p>Orientamento e navigazione. Ti porta alla ricerca, alle sure e ai versetti senza usare un agente AI.</p><a class="keeper-link" href="#library">Entra →</a></article>
+  <article><div class="char-icon studioso">S</div><h3>Studioso</h3><p>Prepara il perimetro per un'analisi futura: testo selezionato, morfologia e fonti. Nessuna chiamata AI in V1.</p><button class="ghost" id="scholarBtn" type="button">Apri Studio</button></article>
+  <article><div class="char-icon cartografo">K</div><h3>Cartografo</h3><p>La sala tematica è predisposta. I collegamenti verranno aggiunti solo quando esisteranno metadati verificati.</p><span class="muted">Sala predisposta</span></article>
+  <article><div class="char-icon codicologo">C</div><h3>Codicologo</h3><p>Fonte, provenienza, licenze, metodo e natura del testo visualizzato.</p><a class="keeper-link" href="about.html">Apri la scheda →</a></article>
  </div>
 </section>
-<footer><p>Corano: testo Uthmani da Tanzil Project. Morfologia: Quranic Arabic Corpus, Kais Dukes. Vedi le attribuzioni nella sezione Fonte.</p><p><a href="about.html">Fonte, licenze e metodologia</a> · <a href="reader.html?ref=1:1">Apri 1:1</a></p></footer>
+<footer><p><strong>Sacred Texts Library · Quran V1</strong></p><p>Corano: testo Uthmani da Tanzil Project. Morfologia: Quranic Arabic Corpus, Kais Dukes. Consulta <a href="about.html">Fonte, licenze e metodologia</a>.</p></footer>
 </main>
-<dialog id="scholarDialog"><form method="dialog"><button class="close">×</button><h2>Studio</h2><p>Questa V1 non invia dati a un server AI. Seleziona un versetto nel lettore e usa “Prepara analisi” per ottenere un prompt chiuso al perimetro del testo e della morfologia.</p><button class="primary">Chiudi</button></form></dialog>
+<dialog id="scholarDialog"><form method="dialog"><button class="close" aria-label="Chiudi">×</button><span class="eyebrow">LO STUDIO</span><h2>Lo Studioso</h2><p>La V1 prepara l'infrastruttura ma non invia automaticamente il testo a un modello. Apri un versetto dal lettore: il perimetro del testo e della morfologia può essere usato per una futura analisi BYOK.</p><a class="primary" href="reader.html?ref=1:1">Apri un testo</a> <button class="ghost">Chiudi</button></form></dialog>
 <script src="assets/app.js" defer></script>
 </body></html>
