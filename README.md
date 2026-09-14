@@ -1,22 +1,28 @@
-# Sacred Texts Library — Quran V1
+# Quran V1 Final Repair Pack
 
-Quran-only release of the project.
+Data di riferimento: repository `hservicesEXP/sacred-texts-library`, build web osservata il 14/09/2026.
 
-Included:
-- All 114 surahs / 6,236 ayat from the supplied Tanzil Uthmani XML.
-- Deterministic local search by Arabic text, reference, morphology root and lemma.
-- Surah navigation and direct verse links.
-- Word-level morphology panel (POS, lemma, root, source features).
-- Local bookmarks and notes via localStorage.
-- Arabic RTL mobile-first reader.
-- Device speech synthesis via Web Speech API.
-- PWA manifest and service worker with runtime caching.
-- Optional cinematic 3D-style entrance, skip control and reduced-motion handling.
-- Custodian, Scholar, Cartographer and Codicologist roles.
-- Source/licensing/methodology page.
+## Problema rilevato
 
-Run:
-    python3 -m http.server 8080 --directory docs
-Open http://127.0.0.1:8080/
+La `reader.html` attuale carica i dati con un solo percorso:
 
-The Hadith, Tanakh, New Testament and Talmud datasets are not included in this release.
+`data/<sura>.json`
+
+e, se quel fetch fallisce, mostra "Impossibile caricare la sura". Il Service Worker v5 inoltre può mantenere asset vecchi.
+
+Questo pack corregge il lato applicativo senza sostituire il corpus.
+
+## File
+
+- `docs/assets/reader.js` — reader robusto con ricerca di più layout dati, diagnostica, retry, local storage e service-worker migration.
+- `docs/assets/app.js` — ricerca robusta e compatibile con varianti di indice/percorsi.
+- `docs/sw.js` — cache v6, network-first per HTML/JS/CSS/JSON, invalidazione delle cache precedenti.
+- `docs/assets/final-polish.css` — rifiniture UI. Va APPESO a `docs/assets/app.css`.
+- `PATCH_NOTES.md` — ordine esatto delle operazioni.
+- `RELEASE_GATE.md` — test finali da eseguire prima del deploy.
+
+## Importante
+
+Questo è un **repair pack/drop-in patch**, non una copia completa del repository: in questo ambiente non è stato possibile clonare il repository GitHub e non bisogna inventare o ricostruire i file dati del corpus.
+
+Il pack NON modifica né sostituisce `data/`, `index.json`, `roots.json`, `lemmas.json`, `concepts.json` o i dati morfologici.

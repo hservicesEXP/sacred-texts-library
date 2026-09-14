@@ -6,3 +6,22 @@
 @media(max-width:620px){.topbar{height:64px}.brand small{display:none}.top-enter{padding:8px 10px}.shell,.reader-shell{width:min(94vw,1180px)}.hero{min-height:auto;padding:55px 0 70px}.hero h2{font-size:clamp(3.5rem,17vw,5.6rem)}.lead{font-size:.95rem}.hero-actions{flex-direction:column;align-items:flex-start}.hero-stats{margin-top:40px;overflow:auto;padding-bottom:4px}.hero-stats div{min-width:86px;margin-right:14px;padding-right:14px}.keeper-feature{min-height:470px}.keeper-silhouette{transform:translateX(-50%) scale(.84);top:22px}.feature-orbit{top:130px}.search-form{grid-template-columns:1fr}.panel{padding:22px;border-radius:22px}.panel-heading{display:block}.status{display:block;margin-top:12px}.sura-grid{grid-template-columns:repeat(2,1fr);gap:8px}.sura-card{min-height:155px;padding:14px}.sura-name{font-size:1rem}.sura-ar{font-size:1.35rem}.character-grid{grid-template-columns:1fr}.character{min-height:285px}.closing{padding:105px 0}.intro h1{font-size:clamp(3.5rem,17vw,5.2rem)}.intro-actions{flex-direction:column}.archway{width:78vw;height:68%;top:15%}.column{display:none}.lantern-left{left:8%}.lantern-right{right:8%}.reader-head{padding:42px 0 25px;align-items:flex-start;flex-direction:column}.reader-head h1{font-size:3rem}.reader-layout{padding-top:22px}.side-nav{grid-template-columns:1fr}.side-nav label,.side-nav hr{grid-column:auto}.verse{padding:15px}.verse-text{font-size:clamp(1.7rem,7vw,2.35rem);line-height:1.95}.verse-tools .ghost{font-size:.63rem}.morph-row{grid-template-columns:1fr}.role-dialog{padding:27px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}.scene{transform:none!important}}
 .reader-progress{height:2px;background:#d9cdbb;margin-top:0;overflow:hidden}.reader-progress span{display:block;width:0;height:100%;background:var(--gold);transition:width .12s linear}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.role-dialog textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--white);font:inherit;resize:vertical}.dark{--ink:#eee5d7;--muted:#b6a997;--paper:#12100d;--paper2:#1a1510;--white:#17120e;--line:#4b3b2a;background:#0c0a08;color:var(--ink)}body.dark .topbar{background:#0e0c0ae8;border-color:#4b3b2a}body.dark .panel,body.dark .character,body.dark .sura-card,body.dark .verse{background:#17120e;border-color:#4b3b2a;color:#eee5d7}body.dark .search-form input,body.dark .search-form select,body.dark .side-nav input,body.dark .side-nav select,body.dark .role-dialog,body.dark .role-dialog textarea{background:#17120e;color:#eee5d7;border-color:#4b3b2a}body.dark .role-dialog::backdrop{background:#000b}
+
+/* FINAL V1 POLISH PATCH
+   Intended to be appended to docs/assets/app.css. */
+
+.reader-progress{
+  position:sticky;top:74px;z-index:80;height:2px;background:transparent;
+}
+.reader-progress span{
+  display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transition:width .12s linear;
+}
+.load-error{color:#9b473b!important}
+.side-nav .ghost[aria-pressed="true"]{background:#eadcc7;border-color:var(--gold2)}
+.empty.error-box{gap:8px}
+.empty.error-box button{justify-self:start;margin-top:8px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

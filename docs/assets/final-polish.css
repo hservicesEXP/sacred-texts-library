@@ -1,0 +1,19 @@
+
+/* FINAL V1 POLISH PATCH
+   Intended to be appended to docs/assets/app.css. */
+
+.reader-progress{
+  position:sticky;top:74px;z-index:80;height:2px;background:transparent;
+}
+.reader-progress span{
+  display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transition:width .12s linear;
+}
+.load-error{color:#9b473b!important}
+.side-nav .ghost[aria-pressed="true"]{background:#eadcc7;border-color:var(--gold2)}
+.empty.error-box{gap:8px}
+.empty.error-box button{justify-self:start;margin-top:8px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
