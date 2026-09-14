@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "db" / "canon.sqlite"
-EXPORT_DIR = ROOT / "export"
+EXPORT_DIR = ROOT / "docs"
 
 # Ordine canonico dei sei sedarim (Zeraim->Tahorot) per i 37 trattati
 TALMUD_TRACTATES_ORDER = [

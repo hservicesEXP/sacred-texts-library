@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "db" / "canon.sqlite"
-EXPORT_DIR = ROOT / "export"
+EXPORT_DIR = ROOT / "docs"
 
 FONT_STACKS = {
     "hbo": "'Ezra SIL', 'Noto Serif Hebrew', serif",
